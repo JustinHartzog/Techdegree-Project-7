@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Nav from "./Nav";
 import ImageList from './ImageList';
-import Search from './Search';
 import Error from './Error';
 import axios from 'axios';
 import apiKey from '../config';
 import {
   BrowserRouter,
   Route,
-  Switch
 } from 'react-router-dom'
 
 
@@ -21,7 +19,7 @@ export default class App extends Component {
       pictures: [],
       sunsets: [],
       waterfalls: [],
-      rainbows: [],
+      mountains: [],
       loading: true
     };
   }
@@ -86,29 +84,19 @@ export default class App extends Component {
       }
 
       render() {
-        return (
+      return (
           <BrowserRouter>
-            <div className='container'>
-              <Header />
-              <Route exact path="/" component={() => <Search onSearch={this.performSearch} />}/>
-              <Route exact path="/sunsets" component={() => <Search onSearch={this.sunsetSearch} />}/>
-              <Route exact path="/waterfalls" component={() => <Search onSearch={this.waterfallSearch} />}/>
-              <Route exact path="/mountains" component={() => <Search onSearch={this.mountainSearch} />}/>
-              <Nav />
-              <Switch>
-                {
-                  (this.state.loading)
-                  ? <h3 className='active'>Loading...</h3>
-                  : <Route exact path='/' render={() => <ImageList data={this.state.pictures} />} />
-                }
-                <Route path='/sunsets' render={() => <ImageList data={this.state.sunsets} />} />
-                <Route path='/waterfalls' render={() => <ImageList data={this.state.waterfalls} />} />
-                <Route path='/mountains' render={() => <ImageList data={this.state.mountains} />} />
-                <Route path='/search' render={() => <ImageList data={this.state.pictures} />} />
-                <Route component={Error} />
-              </Switch>
-            </div>
+          <div className="container">
+            <Route path="/" render={() => <Header onSearch={this.performSearch} /> } />
+            <Nav />
+            <Route exact path="/" component={ () => <ImageList data={this.state.pictures} /> }></Route>
+            <Route exact path="/search/:image" component={ () => <ImageList data={this.state.pictures} /> }></Route>
+            <Route exact path="/sunsets" component={ () => <ImageList data={this.state.sunsets} /> }></Route>
+            <Route exact path="/waterfalls" component={ () => <ImageList data={this.state.waterfalls} /> }></Route>
+            <Route exact path="/mountains" component={ () => <ImageList data={this.state.mountains} /> }></Route>
+            <Route component={Error} />
+          </div>
           </BrowserRouter>
-        )
-      }
-    }
+      )
+  }
+}

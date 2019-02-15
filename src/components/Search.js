@@ -13,6 +13,9 @@ export default class SearchForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.onSearch(this.userSearch.value);
+    let path = this.userSearch.value;
+    let result = `/search/${path}`;
+    this.props.history.push(result);
     e.currentTarget.reset();
   }
 
