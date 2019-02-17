@@ -85,7 +85,7 @@ export default class App extends Component {
 
       render() {
       return (
-          <BrowserRouter>
+          <BrowserRouter basename="/Techdegree-Project-7">
           <div className="container">
             <Route path="/" render={() => <Header onSearch={this.performSearch} /> } />
             <Nav />
