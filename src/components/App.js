@@ -8,6 +8,7 @@ import apiKey from '../config';
 import {
   BrowserRouter,
   Route,
+  Switch,
 } from 'react-router-dom'
 
 
@@ -89,12 +90,14 @@ export default class App extends Component {
           <div className="container">
             <Route path="/" render={() => <Header onSearch={this.performSearch} /> } />
             <Nav />
-            <Route exact path="/" component={ () => <ImageList data={this.state.pictures} /> }></Route>
-            <Route exact path="/search/:image" component={ () => <ImageList data={this.state.pictures} /> }></Route>
-            <Route exact path="/sunsets" component={ () => <ImageList data={this.state.sunsets} /> }></Route>
-            <Route exact path="/waterfalls" component={ () => <ImageList data={this.state.waterfalls} /> }></Route>
-            <Route exact path="/mountains" component={ () => <ImageList data={this.state.mountains} /> }></Route>
-            <Route component={Error} />
+            <Switch>
+              <Route exact path="/" component={ () => <ImageList data={this.state.pictures} /> }></Route>
+              <Route exact path="/search/:image" component={ () => <ImageList data={this.state.pictures} /> }></Route>
+              <Route exact path="/sunsets" component={ () => <ImageList data={this.state.sunsets} /> }></Route>
+              <Route exact path="/waterfalls" component={ () => <ImageList data={this.state.waterfalls} /> }></Route>
+              <Route exact path="/mountains" component={ () => <ImageList data={this.state.mountains} /> }></Route>
+              <Route component={Error} />
+            </Switch>
           </div>
           </BrowserRouter>
       )
