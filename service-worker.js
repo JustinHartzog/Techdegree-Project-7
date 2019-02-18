@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Techdegree-Project-7/precache-manifest.05e6175b4b4e4621405e550efe317770.js"
+  "/Techdegree-Project-7/precache-manifest.507e76584d0b2d3e7d27085fa020eb23.js"
 );
 
 workbox.clientsClaim();
