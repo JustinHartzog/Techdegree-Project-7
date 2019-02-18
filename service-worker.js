@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/techdegree-project-7/precache-manifest.81b0d04816f880a1c1f981c21dc2819c.js"
+  "/Techdegree-Project-7/precache-manifest.05e6175b4b4e4621405e550efe317770.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/techdegree-project-7/index.html", {
+workbox.routing.registerNavigationRoute("/Techdegree-Project-7/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
